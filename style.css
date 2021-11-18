@@ -1,0 +1,326 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+}
+
+.section{
+    background-color: green;
+    height: 500px;
+    line-height: 500px;
+}
+.section-2{
+    background-color: rgba(39, 39, 228, 0.699);
+}
+.section-3{
+    background-color: rgba(196, 128, 51, 0.527);
+}
+.section-4{
+    background-color: rgba(104, 26, 104, 0.603);
+}
+.section-5{
+    background-color: rgba(26, 1, 46, 0.904);
+}
+.loader{
+    width: 50px;
+    height: 50px;
+    display: inline-block; 
+    vertical-align: middle;   
+    position: relative;
+}
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes spinreverse {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+
+/* loader quart de cercle */
+.loader-quart{
+    border-radius: 50px;
+    border: solid 6px rgba(255, 255, 255, 0.4);
+}
+.loader-quart:after{
+    content: '';
+
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+
+    border: solid 6px transparent;
+    border-top-color: white;
+    border-radius: 50px;
+
+    animation: spin 1s linear infinite;
+}
+
+/* loader double cerlce */
+
+.loader-double{
+    border-radius: 50px;
+    border: solid 6px transparent;
+    border-top-color: white;
+    border-bottom-color: white;
+    
+    animation: spin 1s linear infinite;
+}
+.loader-double:after{
+    content: '';
+
+    position: absolute;
+
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+
+    border: solid 5px transparent;
+    border-top-color: white;
+    border-bottom-color: white;
+    border-radius: 50px;
+
+    opacity: 0.6;
+
+    animation: spinreverse .5s linear infinite;
+}
+.loader-double::before{
+    content: '';
+
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+    bottom: 12px;
+    right: 12px;
+
+    border: solid 5px transparent;
+    border-top-color: white;
+    border-bottom-color: white;
+    border-radius: 50px;
+
+    opacity: 0.6;
+
+    animation: spinreverse 6s linear infinite;
+}
+
+/* loader clock */
+
+.loader-clock{
+    border-radius: 50px;
+    border: 3px solid rgba(255,255,255,0.4);
+}
+.loader-clock:before{ /* Aiguille des heures */
+    content: '';
+    display: block;
+    position: absolute;
+    left: 23px; /* le centre est de 25px, on en soustrait la moitié de l'épaisseur de l'aiguille */
+    height: 22px; /* hauteur de l'aiguille */
+    top: 3px;
+    width: 2px; /* largeur de l'aiguille */
+    background-color: #FFFFFF;
+    -webkit-animation: rothours 24s linear infinite;
+    animation: rothours 24s linear infinite;
+}
+.loader-clock:after{ /* Aiguille des minutes */
+    content: '';
+    display: block;
+    position: absolute;
+    left: 23px; /* le centre est de 25px, on en soustrait la moitié de l'épaisseur de l'aiguille */
+    top: 10px; /* 25px-hauteur de l'aiguille (ici 15px) */
+    height: 15px; /* hauteur de l'aiguille */
+    width: 2px; /* largeur de l'aiguille */
+    background-color: #FFFFFF;
+    -webkit-animation: rotmin .4s linear infinite; /* 24/60= 0.4 */
+    animation: rotmin .4s linear infinite;    /* 24/60= 0.4 */
+}
+
+@-webkit-keyframes rothours{
+    0%{ -webkit-transform: rotate(0deg); -webkit-transform-origin: 1px 22px;}
+    100%{ -webkit-transform: rotate(360deg);-webkit-transform-origin: 1px 22px;}
+}
+@keyframes rothours{
+    0%{ transform: rotate(0deg); transform-origin: 1px 22px;}
+    100%{ transform: rotate(360deg);transform-origin: 1px 22px;}
+}
+
+@-webkit-keyframes rotmin{
+    0%{ -webkit-transform: rotate(0deg); -webkit-transform-origin: 1px 15px;}
+    100%{ -webkit-transform: rotate(360deg);-webkit-transform-origin: 1px 15px;}
+}
+@keyframes rotmin{
+    0%{ transform: rotate(0deg); transform-origin: 1px 15px;}
+    100%{ transform: rotate(360deg); transform-origin: 1px 15px;}
+}
+
+/* loader double circles */
+
+.loader-circles{
+    border-radius: 50px;
+    border: solid 3px transparent;
+    border-top-color: white;
+    
+    animation: spin 1s linear infinite;
+}
+.loader-circles:after{
+    content: '';
+
+    position: absolute;
+
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+
+    border: solid 3px transparent;
+    border-top-color: white;
+    border-radius: 50px;
+
+    opacity: 0.8;
+
+    animation: spin 3s linear infinite;
+}
+.loader-circles:before{
+    content: '';
+
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+    bottom: 12px;
+    right: 12px;
+
+    border: solid 3px transparent;
+    border-top-color: white;
+    border-radius: 50px;
+
+    opacity: 0.6;
+
+    animation: spin 10s linear infinite;
+}
+
+/* loader barres */
+.loader-bars:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 10px;
+    height: 30px;
+    background-color: white;
+
+    animation: grow 1s linear infinite;
+}
+.loader-bars:after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 0;
+
+    width: 10px;
+    height: 30px;
+    background-color: white;
+
+    animation: grow 1s linear -.25s infinite; /* adapter le délai suivant le nombre d'éléments à animer : ici 4 donc diviser la durée par 4 et incrémenter par élément */
+}
+.loader-bars span:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: 0;
+
+    width: 10px;
+    height: 30px;
+    background-color: white;
+
+    animation: grow 1s linear -.50s infinite;
+}
+.loader-bars span:after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 45px;
+    top: 0;
+
+    width: 10px;
+    height: 30px;
+    background-color: white;
+
+    animation: grow 1s linear -.75s infinite;
+}
+@keyframes grow {
+    0%{
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    50%{
+        transform: scaleY(1);
+        opacity: 1
+    }
+    100%{
+        transform: scaleY(0);
+        opacity: 0;
+    }
+}
+
+/* loader barres version compact*/
+/*  .loader-bars:before,
+    .loader-bars:after,
+    .loader-bars span:before,
+    .loader-bars span:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 10px;
+    height: 30px;
+    background-color: white;
+    animation: grow 1s linear infinite;
+}
+.loader-bars:after{
+    left: 15px;
+    animation-delay: -.25s;
+}
+.loader-bars span:before{
+    left: 30px;
+    animation-delay: -.5s;
+}
+.loader-bars span:after{
+    left: 45px;
+    animation-delay: -.75s;
+}
+@keyframes grow {
+    0%{
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    50%{
+        transform: scaleY(1);
+        opacity: 1
+    }
+    100%{
+        transform: scaleY(0);
+        opacity: 0;
+    }
+} */
